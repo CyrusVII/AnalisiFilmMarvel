@@ -46,3 +46,23 @@ def plot_box_office_trend(df):
     plt.grid(True, linestyle='--', alpha=0.6)
     plt.tight_layout()
     plt.show()
+
+def visualizza_matrice_correlazione(df):
+    # Seleziona solo colonne numeriche
+    df_numerico = df.select_dtypes(include='number')
+
+    # Calcola la matrice di correlazione
+    corr_matrix = df_numerico.corr()
+
+    # Visualizza la matrice con matplotlib
+    plt.figure(figsize=(10, 8))
+    plt.imshow(corr_matrix, cmap='coolwarm', interpolation='none')
+    plt.colorbar(label='Correlazione')
+    plt.xticks(range(len(corr_matrix.columns)), corr_matrix.columns, rotation=90)
+    plt.yticks(range(len(corr_matrix.index)), corr_matrix.index)
+    plt.title("Matrice di Correlazione")
+
+    plt.tight_layout()
+    plt.show()
+
+    return corr_matrix
