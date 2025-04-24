@@ -1,31 +1,62 @@
 import pandas as pd
 
-# === 1. Caricamento del file CSV ===
-file_path = "mcu_project/mcu-movies-updated.csv"  # Sostituisci con il tuo path locale
-df = pd.read_csv(file_path, sep=',')
+def take_data():
+  
+  # Caricamento del CSV
+  file_path = "mcu_project/mcu-movies-updated.csv"
+  df = pd.read_csv(file_path)
 
-# === 2. Pulizia dei dati ===
+  # Visualizzazione delle prime righe
+  print("Prime righe del DataFrame:")
+  print(df.head())
 
-# Rimuove spazi dai nomi delle colonne
-df.columns = df.columns.str.strip()
+  # Informazioni generali
+  print("\nInformazioni del DataFrame:")
+  print(df.info())
 
-# Rimuove eventuali righe completamente vuote
-df.dropna(how='all', inplace=True)
+  # Colonna: movie
+  # -> stringa, lasciamo così, ma possiamo rimuovere spazi extra se ci sono
+  df['movie'] = df['movie'].str.strip()
 
-# Riempie i valori nulli con valori ragionevoli
-df['running_time'] = df['running_time'].fillna(df['running_time'].mean())
-df['budget'] = df['budget'].fillna(df['budget'].mean())
-df['box_office'] = df['box_office'].fillna("0")
-df['superheroes'] = df['superheroes'].fillna("Unknown")
+  # Colonna: release_date
+  # -> convertire in datetime
+  df['release_date'] = pd.to_datetime(df['release_date'], errors='coerce')
 
-# Converte le colonne in formati corretti
-df['running_time'] = pd.to_numeric(df['running_time'], errors='coerce')
-df['budget'] = pd.to_numeric(df['budget'], errors='coerce')
-df['box_office'] = pd.to_numeric(df['box_office'], errors='coerce')
+  # Colonne: release_order, chronological_order, phase
+  # -> float64, possono essere convertiti in int se non ci sono decimali
+  df['release_order'] = df['release_order'].astype('int')
+  df['chronological_order'] = df['chronological_order'].astype('int')
+  df['phase'] = df['phase'].astype('int')
 
-# Ordina il DataFrame per ordine di uscita
-df = df.sort_values(by='release_order')
+  # Colonna: running_time
+  # -> lasciamo float, ma potresti convertirlo in int se sono tutti numeri interi
+  df['running_time'] = df['running_time'].astype('int')
 
-# === 3. Il DataFrame pulito è pronto! ===
-print(df.head())  # Mostra le prime righe
+  # Colonna: budget
+  # -> float, ok,  convertire a milioni 
+  df['budget_million'] = df['budget'] / 1e6
+
+  # Colonna: box_office
+  # dobbiamo pulire e convertire in numero
+  df['box_office_clean'] = df['box_office'].replace('[\$,]', '', regex=True).replace(',', '', regex=True)
+  df['box_office_clean'] = pd.to_numeric(df['box_office_clean'], errors='coerce') / 1e6  # in milioni
+
+  # Colonne: rt_critic_score e rt_audience_score
+  # -> già float, ma potresti normalizzare su 0-1 (opzionale)
+  df['rt_critic_score'] = df['rt_critic_score'] / 100
+  df['rt_audience_score'] = df['rt_audience_score'] / 100
+
+  # Colonna: superheroes
+  # -> se contiene liste o stringhe multiple, potremmo dividerla
+  df['superheroes_list'] = df['superheroes'].str.split(',\s*')
+
+  # Mostra le colonne disponibili 
+  print("\nColonne disponibili:")
+  print(df.columns)
+  
+  return df
+
+
+
+
 
