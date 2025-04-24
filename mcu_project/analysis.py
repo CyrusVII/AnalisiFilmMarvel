@@ -29,23 +29,33 @@ def analizza_guadagni_mcu(df):
 
     return risultati
 
-def visualizza_andamento_incassi(df):
-    df['release_date'] = pd.to_datetime(df['release_date'], errors='coerce', dayfirst=True)
 
-    # Selezione e ordinamento dei dati
-    df_plot = df[['movie', 'release_date', 'box_office']].dropna().sort_values('release_date')
+def analizza_scores(df):
 
-    # Creazione del grafico
-    plt.figure(figsize=(12, 6))
-    plt.plot(df_plot['release_date'], df_plot['box_office'], marker='o')
+    # Differenza tra punteggio pubblico e critici
+    df['differenza'] = df['rt_audience_score'] - df['rt_critic_score']
 
-    # Aggiunta delle etichette
-    plt.title('Andamento degli incassi nel tempo - MCU')
-    plt.xlabel('Data di uscita')
-    plt.ylabel('Box Office (milioni di $)')
-    plt.xticks(rotation=45)
-    plt.grid(True)
-    plt.tight_layout()
+    # Film dove il pubblico è stato molto più positivo dei critici
+    film_pubblico_piu_positivo = df.loc[df['differenza'].idxmax(), ['movie', 'rt_critic_score', 'rt_audience_score']]
 
-    # Visualizzazione
-    plt.show()
+    # Film dove i critici sono stati molto più positivi del pubblico
+    film_critici_piu_positivi = df.loc[df['differenza'].idxmin(), ['movie', 'rt_critic_score', 'rt_audience_score']]
+
+    return {
+        "film più positivo secondo il pubblico": film_pubblico_piu_positivo.to_dict(),
+        "film critici più positivi": film_critici_piu_positivi.to_dict()
+    }
+
+def conta_supereroi(df):
+    # Divide i nomi dei supereroi separati da virgola e li espande in righe singole
+    data_eroi = df['superheroes'].str.split(', ').explode()
+
+    # Conta quante volte ogni supereroe appare
+    conteggio = data_eroi.value_counts().reset_index()
+    conteggio.columns = ['superhero', 'num_film']
+    # Supereroe più presente
+    supereroe_max = conteggio.iloc[0]
+    print(f"🦸 Supereroe più presente: {supereroe_max['superhero']} ({supereroe_max['num_film']} film)")
+
+
+    return conteggio
