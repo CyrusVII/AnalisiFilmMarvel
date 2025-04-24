@@ -24,7 +24,7 @@ def menu():
         print("7. Film matrice di correlazione")
         print("8. Esci")
 
-        scelta = input("Scegli un'opzione (1-7): ")
+        scelta = input("Scegli un'opzione (1-8): ")
         match scelta:
             case "1":
                 plot_roi(df)
