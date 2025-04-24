@@ -58,3 +58,25 @@ def conta_supereroi(df):
 
 
     return conteggio
+
+def film_supereroe_piu_presente(df):
+    # Espandi i supereroi in righe singole
+    data_eroi = df[['movie', 'superheroes']].copy()
+    data_eroi['superhero'] = data_eroi['superheroes'].str.split(', ')
+    data_eroi = data_eroi.explode('superhero')
+
+    # Conta le presenze e trova il supereroe più presente
+    supereroe_top = data_eroi['superhero'].value_counts().idxmax()
+
+    # Filtra i film dove appare quel supereroe
+    film_top = data_eroi[data_eroi['superhero'] == supereroe_top]['movie'].unique()
+
+    # Stampa risultati
+    print(f"🦸 Supereroe più presente: {supereroe_top}")
+    print("📽️ Film in cui compare:")
+    for film in sorted(film_top):
+        print(f"- {film}")
+
+    return supereroe_top, film_top
+eroe, film = film_supereroe_piu_presente(df)
+  
