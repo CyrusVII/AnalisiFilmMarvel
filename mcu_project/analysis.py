@@ -78,5 +78,4 @@ def film_supereroe_piu_presente(df):
         print(f"- {film}")
 
     return supereroe_top, film_top
-eroe, film = film_supereroe_piu_presente(df)
-  
+

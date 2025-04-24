@@ -2,7 +2,6 @@
 from clening import take_data
 from plots import plot_roi, plot_box_office_trend
 from analysis import analizza_guadagni_mcu
-
 import matplotlib.pyplot as plt
 
 
