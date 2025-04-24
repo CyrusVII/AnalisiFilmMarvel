@@ -29,7 +29,6 @@ def take_data():
   df['phase'] = df['phase'].astype('int')
 
   # Colonna: running_time
-  # -> lasciamo float, ma potresti convertirlo in int se sono tutti numeri interi
   df['running_time'] = df['running_time'].astype('int')
 
   # Colonna: budget
