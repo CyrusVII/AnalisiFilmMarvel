@@ -20,7 +20,7 @@ print("\nPrime 5 righe del DataFrame pulito con ROI:")
 print(df.head())
 
 # 5. Grafico ROI migliorato (bar chart professionale)
-plt.style.use('seaborn-whitegrid')
+plt.style.use('ggplot')
 fig, ax = plt.subplots(figsize=(16, 8))
 
 bars = ax.bar(df['movie'], df['roi'], color='#1f77b4', edgecolor='black')

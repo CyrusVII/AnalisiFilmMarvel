@@ -8,7 +8,8 @@ def load_data(filepath):
 
 def clean_data(df):
     df = df.copy()
-    df['release_date'] = pd.to_datetime(df['release_date'], errors='coerce')
+    df['release_date'] = pd.to_datetime(df['release_date'], format="%d-%b-%y", errors='coerce')
+
     df['budget'] = pd.to_numeric(df['budget'], errors='coerce')
     df['box_office'] = pd.to_numeric(df['box_office'], errors='coerce')
     return df
