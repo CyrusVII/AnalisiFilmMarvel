@@ -3,7 +3,7 @@ from utils import load_data, clean_data, calculate_roi
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mticker
 
-# Percorso assoluto al file CSV
+# Percorso al file CSV
 csv_path = "C:/Users/stefa/OneDrive/Desktop/AnalisiFilmMarvel/mcu_project/mcu-movies-updated.csv"
 
 # 1. Caricamento dati
@@ -19,7 +19,7 @@ df = calculate_roi(df)
 print("\nPrime 5 righe del DataFrame pulito con ROI:")
 print(df.head())
 
-# 5. Grafico ROI migliorato (bar chart professionale)
+# 5. Grafico ROI 
 plt.style.use('ggplot')
 fig, ax = plt.subplots(figsize=(16, 8))
 
