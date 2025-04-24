@@ -16,7 +16,7 @@ def menu():
     while True:
         print("\n=== MENU MCU ANALYSIS ===")
         print("1. Visualizza ROI per film")
-        print("2. Visualizza andamento incassi nel tempo")
+        print("2. Visualizza andamento inc1assi nel tempo")
         print("3. Analizza guadagni (media, max, min)")
         print("4. Analizza critici vs pubblico")
         print("5. Conta supereroi per numero di film")
