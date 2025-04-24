@@ -56,19 +56,6 @@ def take_data():
   
   return df
 
-def push_on_db():
-  df = take_data()
-  # 3. Connessione a SQLite e caricamento tabella
-  conn = sqlite3.connect('mcu_movies.db')
-  df.to_sql('mcu_movies', conn, if_exists='replace', index=False)
-
-  #print(f"Dati caricati con successo in '{db_path}', tabella '{table_name}'.")
-
-  # 4. Chiudi connessione
-  conn.close()
-
-#push_on_db()
-take_data()
 
 
 
