@@ -2,7 +2,7 @@ import pandas as pd
 
 # === 1. Caricamento del file CSV ===
 file_path = "mcu_project/mcu-movies-updated.csv"  # Sostituisci con il tuo path locale
-df = pd.read_csv(file_path)
+df = pd.read_csv(file_path, sep=',')
 
 # === 2. Pulizia dei dati ===
 
