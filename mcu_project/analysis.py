@@ -13,7 +13,7 @@ def analizza_guadagni_mcu(df):
     film_max_profit = df.loc[df['profit'].idxmax(), 'movie']
     film_min_profit = df.loc[df['profit'].idxmin(), 'movie']
 
-     # Dizionario dei risultati
+    # Dizionario dei risultati
     risultati = {
         "profit medio": round(profit_medio, 1),
         "profit massimo": round(profit_massimo, 1),

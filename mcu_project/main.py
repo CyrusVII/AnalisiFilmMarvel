@@ -1,7 +1,12 @@
 # main.py
 from clening import take_data
-from plots import plot_roi, plot_box_office_trend
-from analysis import analizza_guadagni_mcu
+from plots import plot_roi, plot_box_office_trend, visualizza_matrice_correlazione
+from analysis import (
+    analizza_guadagni_mcu,
+    analizza_scores,
+    conta_supereroi,
+    film_supereroe_piu_presente
+)
 import matplotlib.pyplot as plt
 
 
@@ -13,9 +18,13 @@ def menu():
         print("1. Visualizza ROI per film")
         print("2. Visualizza andamento incassi nel tempo")
         print("3. Analizza guadagni (media, max, min)")
-        print("4. Esci")
+        print("4. Analizza critici vs pubblico")
+        print("5. Conta supereroi per numero di film")
+        print("6. Film in cui appare il supereroe più presente")
+        print("7. Film matrice di correlazione")
+        print("8. Esci")
 
-        scelta = input("Scegli un'opzione (1-4): ")
+        scelta = input("Scegli un'opzione (1-7): ")
         match scelta:
             case "1":
                 plot_roi(df)
@@ -23,15 +32,31 @@ def menu():
                 plot_box_office_trend(df)
             case "3":
                 risultati = analizza_guadagni_mcu(df)
-                print("\nRisultati guadagni MCU:")
+                print("\n📊 Risultati guadagni MCU:")
                 for k, v in risultati.items():
                     print(f"{k.capitalize()}: {v}")
             case "4":
+                risultati = analizza_scores(df)
+                print("\n🍿 Analisi punteggi pubblico vs critici:")
+                for chiave, valore in risultati.items():
+                    print(f"\n{chiave.upper()}:")
+                    for k, v in valore.items():
+                        print(f"  {k}: {v}")
+            case "5":
+                print("\n🦸‍♂️ Conteggio supereroi:")
+                conteggio = conta_supereroi(df)
+                print(conteggio)
+            case "6":
+                print("\n🎬 Supereroe più presente e relativi film:")
+                film_supereroe_piu_presente(df)
+            case "7":
+                visualizza_matrice_correlazione(df)
+            case "8":
                 print("Uscita dal programma. 👋")
                 break
             case _:
                 print("Opzione non valida. Riprova.")
 
-# Avvio del menu
+
 if __name__ == "__main__":
     menu()
