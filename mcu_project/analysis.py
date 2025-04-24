@@ -21,6 +21,12 @@ def analizza_guadagni_mcu(df):
         "profit minimo": round(profit_minimo, 1),
         "film con profit minimo": film_min_profit
     }
+    
+    # Converte in DataFrame e salva in CSV
+    risultati_df = pd.DataFrame([risultati])
+    risultati_df.to_csv("risultati_guadagni_mcu.csv", index=False)
+
+    return risultati
 
 
 def analizza_scores(df):
