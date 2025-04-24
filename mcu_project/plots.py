@@ -4,6 +4,10 @@ import pandas as pd
 
 def plot_roi(df):
     """Grafico a barre del ROI per ogni film MCU."""
+    if 'roi' not in df.columns:
+        df = df.copy()
+        df['roi'] = (df['box_office'] - df['budget']) / df['budget']
+
     plt.style.use('ggplot')
     fig, ax = plt.subplots(figsize=(16, 8))
 
