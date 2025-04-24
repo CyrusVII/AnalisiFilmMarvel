@@ -17,21 +17,21 @@ def menu():
         print("4. Esci")
 
         scelta = input("Scegli un'opzione (1-4): ")
-
-        if scelta == "1":
-            plot_roi(df)
-        elif scelta == "2":
-            plot_box_office_trend(df)
-        elif scelta == "3":
-            risultati = analizza_guadagni_mcu(df)
-            print("\nRisultati guadagni MCU:")
-            for k, v in risultati.items():
-                print(f"{k.capitalize()}: {v}")
-        elif scelta == "4":
-            print("Uscita dal programma. 👋")
-            break
-        else:
-            print("Opzione non valida. Riprova.")
+        match scelta:
+            case "1":
+                plot_roi(df)
+            case "2":
+                plot_box_office_trend(df)
+            case "3":
+                risultati = analizza_guadagni_mcu(df)
+                print("\nRisultati guadagni MCU:")
+                for k, v in risultati.items():
+                    print(f"{k.capitalize()}: {v}")
+            case "4":
+                print("Uscita dal programma. 👋")
+                break
+            case _:
+                print("Opzione non valida. Riprova.")
 
 # Avvio del menu
 if __name__ == "__main__":
