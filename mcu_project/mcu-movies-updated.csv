@@ -1,25 +1,25 @@
 movie,release_date,release_order,chronological_order,phase,running_time,budget,box_office,rt_critic_score,rt_audience_score,wikipedia_link,superheroes
-Iron Man,2-May-08,1.0,3.0,1.0,126.0,140.0,585.8,94.0,91.0,https://en.wikipedia.org/wiki/Iron_Man_(2008_film),Tony Stark / Iron Man
-The Incredible Hulk,13-Jun-08,2.0,5.0,1.0,112.0,137.5,264.8,67.0,70.0,https://en.wikipedia.org/wiki/The_Incredible_Hulk_(film),Bruce Banner / Hulk
-Iron Man 2,7-May-10,3.0,4.0,1.0,125.0,170.0,623.9,72.0,71.0,https://en.wikipedia.org/wiki/Iron_Man_2,Tony Stark / Iron Man
-Thor,6-May-11,4.0,6.0,1.0,114.0,150.0,449.3,77.0,76.0,https://en.wikipedia.org/wiki/Thor_(film),Thor Odinson
-Captain America: The First Avenger,22-Jul-11,5.0,1.0,1.0,124.0,140.0,370.6,80.0,74.0,https://en.wikipedia.org/wiki/Captain_America:_The_First_Avenger,Steve Rogers / Captain America
+Iron Man,2-May-08,1.0,3.0,1.0,126.0,140.0,585.8,94.0,91.0,https://en.wikipedia.org/wiki/Iron_Man_(2008_film),"Tony Stark,Iron Man"
+The Incredible Hulk,13-Jun-08,2.0,5.0,1.0,112.0,137.5,264.8,67.0,70.0,https://en.wikipedia.org/wiki/The_Incredible_Hulk_(film),"Bruce Banner,Hulk"
+Iron Man 2,7-May-10,3.0,4.0,1.0,125.0,170.0,623.9,72.0,71.0,https://en.wikipedia.org/wiki/Iron_Man_2,"Tony Stark,Iron Man"
+Thor,6-May-11,4.0,6.0,1.0,114.0,150.0,449.3,77.0,76.0,https://en.wikipedia.org/wiki/Thor_(film),"Thor Odinson"
+Captain America: The First Avenger,22-Jul-11,5.0,1.0,1.0,124.0,140.0,370.6,80.0,74.0,https://en.wikipedia.org/wiki/Captain_America:_The_First_Avenger,"Steve Rogers,Captain America"
 Marvel's The Avengers,4-May-12,6.0,7.0,1.0,143.0,220.0,"1,519",91.0,91.0,https://en.wikipedia.org/wiki/The_Avengers_(2012_film),"Iron Man, Captain America, Thor, Hulk, Black Widow, Hawkeye"
-Iron Man 3,3-May-13,7.0,8.0,2.0,131.0,200.0,"1,215",79.0,78.0,https://en.wikipedia.org/wiki/Iron_Man_3,Tony Stark / Iron Man
-Thor: The Dark World,8-Nov-13,8.0,9.0,2.0,112.0,150.0,644.8,66.0,75.0,https://en.wikipedia.org/wiki/Thor:_The_Dark_World,Thor Odinson
-Captain America: The Winter Soldier,4-Apr-14,9.0,10.0,2.0,136.0,170.0,714.4,90.0,92.0,https://en.wikipedia.org/wiki/Captain_America:_The_Winter_Soldier,Steve Rogers / Captain America
+Iron Man 3,3-May-13,7.0,8.0,2.0,131.0,200.0,"1,215",79.0,78.0,https://en.wikipedia.org/wiki/Iron_Man_3,"Tony Stark,Iron Man"
+Thor: The Dark World,8-Nov-13,8.0,9.0,2.0,112.0,150.0,644.8,66.0,75.0,https://en.wikipedia.org/wiki/Thor:_The_Dark_World,"Thor Odinson"
+Captain America: The Winter Soldier,4-Apr-14,9.0,10.0,2.0,136.0,170.0,714.4,90.0,92.0,https://en.wikipedia.org/wiki/Captain_America:_The_Winter_Soldier,"Captain America"
 Guardians of the Galaxy,1-Aug-14,10.0,11.0,2.0,122.0,232.3,772.8,92.0,92.0,https://en.wikipedia.org/wiki/Guardians_of_the_Galaxy_(film),"Star-Lord, Gamora, Drax, Rocket, Groot"
 Avengers: Age of Ultron,1-May-15,11.0,13.0,2.0,141.0,444.0,"1,403",76.0,83.0,https://en.wikipedia.org/wiki/Avengers:_Age_of_Ultron,"Iron Man, Captain America, Thor, Hulk, Black Widow, Hawkeye"
-Ant-Man,17-Jul-15,12.0,14.0,2.0,117.0,130.0,519.3,83.0,86.0,https://en.wikipedia.org/wiki/Ant-Man_(film),Scott Lang / Ant-Man
+Ant-Man,17-Jul-15,12.0,14.0,2.0,117.0,130.0,519.3,83.0,86.0,https://en.wikipedia.org/wiki/Ant-Man_(film),"Scott Lang,Ant-Man"
 Captain America: Civil War,6-May-16,13.0,15.0,3.0,147.0,250.0,"1,153",90.0,89.0,https://en.wikipedia.org/wiki/Captain_America:_Civil_War,"Iron Man, Captain America, Spider-Man, Black Panther, Black Widow"
-Doctor Strange,4-Nov-16,14.0,17.0,3.0,115.0,165.0,677.7,89.0,85.0,https://en.wikipedia.org/wiki/Doctor_Strange_(2016_film),Stephen Strange / Doctor Strange
+Doctor Strange,4-Nov-16,14.0,17.0,3.0,115.0,165.0,677.7,89.0,85.0,https://en.wikipedia.org/wiki/Doctor_Strange_(2016_film),"Doctor Strange"
 Guardians of the Galaxy Vol. 2,5-May-17,15.0,12.0,3.0,137.0,200.0,864,85.0,87.0,https://en.wikipedia.org/wiki/Guardians_of_the_Galaxy_Vol._2,"Star-Lord, Gamora, Drax, Rocket, Groot, Mantis, Nebula, Yondu"
-Spider-Man: Homecoming,7-Jul-17,16.0,16.0,3.0,133.0,175.0,880.2,92.0,87.0,https://en.wikipedia.org/wiki/Spider-Man:_Homecoming,Peter Parker / Spider-Man
+Spider-Man: Homecoming,7-Jul-17,16.0,16.0,3.0,133.0,175.0,880.2,92.0,87.0,https://en.wikipedia.org/wiki/Spider-Man:_Homecoming,"Peter Parker,Spider-Man"
 Thor: Ragnarok,3-Nov-17,17.0,19.0,3.0,130.0,180.0,854,93.0,87.0,https://en.wikipedia.org/wiki/Thor:_Ragnarok,"Thor, Loki, Hulk, Valkyrie"
-Black Panther,16-Feb-18,18.0,18.0,3.0,134.0,200.0,"1,348",96.0,79.0,https://en.wikipedia.org/wiki/Black_Panther_(film),T'Challa / Black Panther
+Black Panther,16-Feb-18,18.0,18.0,3.0,134.0,200.0,"1,348",96.0,79.0,https://en.wikipedia.org/wiki/Black_Panther_(film),"Black Panther"
 Avengers: Infinity War,27-Apr-18,19.0,20.0,3.0,149.0,325.0,"2,048",85.0,91.0,https://en.wikipedia.org/wiki/Avengers:_Infinity_War,"Iron Man, Captain America, Thor, Hulk, Black Widow, Guardians of the Galaxy"
-Ant-Man and the Wasp,6-Jul-18,20.0,21.0,3.0,118.0,130.0,623,87.0,75.0,https://en.wikipedia.org/wiki/Ant-Man_and_the_Wasp,"Scott Lang / Ant-Man, Hope van Dyne / Wasp"
-Captain Marvel,8-Mar-19,21.0,2.0,3.0,124.0,152.0,"1,128",79.0,45.0,https://en.wikipedia.org/wiki/Captain_Marvel_(film),Carol Danvers / Captain Marvel
+Ant-Man and the Wasp,6-Jul-18,20.0,21.0,3.0,118.0,130.0,623,87.0,75.0,https://en.wikipedia.org/wiki/Ant-Man_and_the_Wasp,"Scott Lang,Ant-Man, Hope van Dyne, Wasp"
+Captain Marvel,8-Mar-19,21.0,2.0,3.0,124.0,152.0,"1,128",79.0,45.0,https://en.wikipedia.org/wiki/Captain_Marvel_(film),"Carol Danvers , Captain Marvel"
 Avengers: Endgame,26-Apr-19,22.0,22.0,3.0,181.0,356.0,"2,798",94.0,90.0,https://en.wikipedia.org/wiki/Avengers:_Endgame,"Iron Man, Captain America, Thor, Hulk, Black Widow, Hawkeye"
-Spider-Man: Far From Home,2-Jul-19,23.0,23.0,3.0,129.0,160.0,"1,132",90.0,95.0,https://en.wikipedia.org/wiki/Spider-Man:_Far_From_Home,Peter Parker / Spider-Man
+Spider-Man: Far From Home,2-Jul-19,23.0,23.0,3.0,129.0,160.0,"1,132",90.0,95.0,https://en.wikipedia.org/wiki/Spider-Man:_Far_From_Home,"Peter Parker,Spider-Man"
 
