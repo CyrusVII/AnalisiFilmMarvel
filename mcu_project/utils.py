@@ -1,5 +1,8 @@
+# utils.py
+import pandas as pd
+import numpy as np  # opzionale, se ti serve
+
 def load_data(filepath):
-    import pandas as pd
     df = pd.read_csv(filepath)
     return df
 
