@@ -1,25 +1,26 @@
 import pandas as pd
 import numpy as np
 
-def analizza_guadagni_mcu(df, salva_csv=True):
-    """
-    Calcola e restituisce il profitto medio, massimo e minimo dei film MCU.
-    Salva i risultati su CSV se salva_csv=True.
-    """
+def analizza_guadagni_mcu(df):
+    # Calcolo del profitto
     df['profit'] = df['box_office'] - df['budget']
 
+    profit_medio = float(np.mean(df['profit']))
+    profit_massimo = float(np.max(df['profit']))
+    profit_minimo = float(np.min(df['profit']))
+
+    # Film con profitto massimo e minimo
+    film_max_profit = df.loc[df['profit'].idxmax(), 'movie']
+    film_min_profit = df.loc[df['profit'].idxmin(), 'movie']
+
+     # Dizionario dei risultati
     risultati = {
-        "profit medio": round(df['profit'].mean(), 1),
-        "profit massimo": round(df['profit'].max(), 1),
-        "film con profit massimo": df.loc[df['profit'].idxmax(), 'movie'],
-        "profit minimo": round(df['profit'].min(), 1),
-        "film con profit minimo": df.loc[df['profit'].idxmin(), 'movie']
+        "profit medio": round(profit_medio, 1),
+        "profit massimo": round(profit_massimo, 1),
+        "film con profit massimo": film_max_profit,
+        "profit minimo": round(profit_minimo, 1),
+        "film con profit minimo": film_min_profit
     }
-
-    if salva_csv:
-        pd.DataFrame([risultati]).to_csv("risultati_guadagni_mcu.csv", index=False)
-
-    return risultati
 
 
 def analizza_scores(df):
