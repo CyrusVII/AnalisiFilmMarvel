@@ -34,12 +34,12 @@ def take_data():
 
   # Colonna: budget
   # -> float, ok,  convertire a milioni 
-  df['budget_million'] = df['budget'] / 1e6
+  df['budget'] = df['budget'] 
 
   # Colonna: box_office
   # dobbiamo pulire e convertire in numero
-  df['box_office_clean'] = df['box_office'].replace('[\$,]', '', regex=True).replace(',', '', regex=True)
-  df['box_office_clean'] = pd.to_numeric(df['box_office_clean'], errors='coerce') / 1e6  # in milioni
+  df['box_office'] = df['box_office'].replace('[\$,]', '', regex=True).replace(',', '', regex=True)
+  df['box_office'] = pd.to_numeric(df['box_office'], errors='coerce')  
 
   # Colonne: rt_critic_score e rt_audience_score
   # -> già float, ma potresti normalizzare su 0-1 (opzionale)
@@ -53,7 +53,6 @@ def take_data():
   # Mostra le colonne disponibili 
   print("\nColonne disponibili:")
   print(df.columns)
-  print(df['rt_critic_score'])
   
   return df
 
@@ -69,6 +68,7 @@ def push_on_db():
   conn.close()
 
 #push_on_db()
+take_data()
 
 
 
