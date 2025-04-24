@@ -1,24 +1,9 @@
 import matplotlib.pyplot as plt
+import matplotlib.ticker as mticker
+import pandas as pd
 
 def plot_roi(df):
-    plt.figure(figsize=(14, 6))
-    bars = plt.bar(df['movie'], df['roi'], color='dodgerblue', edgecolor='black')
-    plt.title("ROI per Film MCU", fontsize=16, weight='bold')
-    plt.xlabel("Film", fontsize=12)
-    plt.ylabel("ROI", fontsize=12)
-    plt.xticks(rotation=75, ha='right', fontsize=8)
-    plt.grid(axis='y', linestyle='--', alpha=0.7)
-
-    for bar in bars:
-        height = bar.get_height()
-        plt.text(bar.get_x() + bar.get_width()/2., height + 0.1, f'{height:.2f}', ha='center', fontsize=8)
-
-    plt.tight_layout()
-    plt.show()
-    
-    
-def roi(df):
-    # 5. Grafico ROI 
+    """Grafico a barre del ROI per ogni film MCU."""
     plt.style.use('ggplot')
     fig, ax = plt.subplots(figsize=(16, 8))
 
@@ -31,14 +16,29 @@ def roi(df):
     ax.yaxis.set_major_locator(mticker.MaxNLocator(integer=True))
     ax.set_ylim(0, df['roi'].max() + 1)
 
-    # Aggiunta etichette sopra le barre
     for bar in bars:
         height = bar.get_height()
         ax.annotate(f'{height:.2f}',
                     xy=(bar.get_x() + bar.get_width() / 2, height),
-                    xytext=(0, 3),  # spostamento in pixel
+                    xytext=(0, 3),
                     textcoords="offset points",
                     ha='center', va='bottom', fontsize=8)
 
+    plt.tight_layout()
+    plt.show()
+
+def plot_box_office_trend(df):
+    """Grafico a linea dell'andamento degli incassi nel tempo."""
+    df['release_date'] = pd.to_datetime(df['release_date'], errors='coerce', dayfirst=True)
+
+    df_plot = df[['movie', 'release_date', 'box_office']].dropna().sort_values('release_date')
+
+    plt.figure(figsize=(12, 6))
+    plt.plot(df_plot['release_date'], df_plot['box_office'], marker='o', linestyle='-', color='darkgreen')
+    plt.title('Andamento degli incassi nel tempo - MCU')
+    plt.xlabel('Data di uscita')
+    plt.ylabel('Box Office (milioni di $)')
+    plt.xticks(rotation=45)
+    plt.grid(True, linestyle='--', alpha=0.6)
     plt.tight_layout()
     plt.show()
