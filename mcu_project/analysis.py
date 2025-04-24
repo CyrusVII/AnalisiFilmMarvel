@@ -1,30 +1,51 @@
-# main.py
-from utils import load_data, clean_data, calculate_roi
+import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 
-# Percorso al CSV
-csv_path = "mcu_movies_with_protagonist.csv"
+def analizza_guadagni_mcu(df):
+    # Calcolo del profitto
+    df['profit'] = df['box_office'] - df['budget']
 
-# 1. Caricamento dati
-df = load_data(csv_path)
+    profit_medio = float(np.mean(df['profit']))
+    profit_massimo = float(np.max(df['profit']))
+    profit_minimo = float(np.min(df['profit']))
 
-# 2. Pulizia dati
-df = clean_data(df)
+    # Film con profitto massimo e minimo
+    film_max_profit = df.loc[df['profit'].idxmax(), 'movie']
+    film_min_profit = df.loc[df['profit'].idxmin(), 'movie']
 
-# 3. Calcolo ROI
-df = calculate_roi(df)
+    # Dizionario dei risultati
+    risultati = {
+        "profit medio": round(profit_medio, 1),
+        "profit massimo": round(profit_massimo, 1),
+        "film con profit massimo": film_max_profit,
+        "profit minimo": round(profit_minimo, 1),
+        "film con profit minimo": film_min_profit
+    }
 
-# 4. Stampa overview
-print("\nPrime 5 righe del DataFrame pulito con ROI:")
-print(df.head())
+    # Converte in DataFrame e salva in CSV
+    risultati_df = pd.DataFrame([risultati])
+    risultati_df.to_csv("risultati_guadagni_mcu.csv", index=False)
 
-# 5. Grafico ROI (esempio)
-plt.figure(figsize=(10, 5))
-plt.plot(df['release_order'], df['roi'], marker='o')
-plt.title("MCU ROI per Film (ordine di uscita)")
-plt.xlabel("Release Order")
-plt.ylabel("ROI")
-plt.grid(True)
-plt.xticks(df['release_order'], df['movie'], rotation=90)
-plt.tight_layout()
-plt.show()
+    return risultati
+
+def visualizza_andamento_incassi(df):
+    df['release_date'] = pd.to_datetime(df['release_date'], errors='coerce', dayfirst=True)
+
+    # Selezione e ordinamento dei dati
+    df_plot = df[['movie', 'release_date', 'box_office']].dropna().sort_values('release_date')
+
+    # Creazione del grafico
+    plt.figure(figsize=(12, 6))
+    plt.plot(df_plot['release_date'], df_plot['box_office'], marker='o')
+
+    # Aggiunta delle etichette
+    plt.title('Andamento degli incassi nel tempo - MCU')
+    plt.xlabel('Data di uscita')
+    plt.ylabel('Box Office (milioni di $)')
+    plt.xticks(rotation=45)
+    plt.grid(True)
+    plt.tight_layout()
+
+    # Visualizzazione
+    plt.show()
