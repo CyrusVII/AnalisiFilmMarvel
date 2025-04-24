@@ -52,6 +52,7 @@ def take_data():
   # Mostra le colonne disponibili 
   print("\nColonne disponibili:")
   print(df.columns)
+  print(df['rt_critic_score'])
   
   return df
 
